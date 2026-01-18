@@ -1,0 +1,26 @@
+{
+  "/csrf": {
+    "target": "https://faith-baptist-church-backend.onrender.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "warn"
+  },
+  "/login": {
+    "target": "https://faith-baptist-church-backend.onrender.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "warn"
+  },
+  "/logout": {
+    "target": "https://faith-baptist-church-backend.onrender.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "warn"
+  },
+  "/toProccess": {
+    "target": "https://faith-baptist-church-backend.onrender.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "warn"
+  }
+}
