@@ -6,6 +6,7 @@ import type { ApiResult, ToProccessBody } from './api.types'
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private csrfToken: string | null = null
+  private url: string = 'https://faith-baptist-church-backend.onrender.com'
 
   constructor(private http: HttpClient) {}
 
@@ -14,7 +15,7 @@ export class ApiService {
 
     // Relative URL on purpose: the dev proxy forwards it to the backend.
     const data: any = await firstValueFrom(
-      this.http.get('/csrf', {
+      this.http.get(`${this.url}/csrf`, {
         // Keep explicit works both with proxy and with cross-origin setups.
         withCredentials: true,
       })
@@ -61,17 +62,17 @@ export class ApiService {
 
   // Public API
   async login(user: string, pass: string) {
-    return this.postJson('/login', { username: user, password: pass })
+    return this.postJson(`${this.url}/login`, { username: user, password: pass })
   }
 
   async logout() {
     // Some backends may allow logout without CSRF but your backend requires it.
-    return this.postJson('/logout', {})
+    return this.postJson(`${this.url}/logout`, {})
   }
 
   async toProccess(tx: number, params: object | string | number | null | undefined) {
     const body: ToProccessBody = { tx, params }
-    return this.postJson('/toProccess', body)
+    return this.postJson(`${this.url}/toProccess`, body)
   }
 
   // Helper to reset token (useful when you clear cookies during dev)
