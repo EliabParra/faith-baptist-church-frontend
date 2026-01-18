@@ -45,4 +45,10 @@ export class Home {
       });
     }
   }
+
+  logoutUser() {
+    this.api.logout().then((res) => {
+      console.log('Logout exitoso:', res);
+    });
+  }
 }
